@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/companies")
+@RequestMapping(path = "/companies")
 public class CompanyController
 {
 	// http://localhost:8080/api/companies
-	@GetMapping
+	@GetMapping(version = "1.0")
 	public ResponseEntity<String> getAllCompanies()
 	{
 		String message = "Here Is List Of All Companies";
