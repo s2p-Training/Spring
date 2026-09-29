@@ -1,0 +1,1 @@
+1. CORS Configuration Added CORS Configuration Inside Spring Boot
