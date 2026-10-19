@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/companies")
-//@CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "true")
 public class CompanyController
 {
 	private ICompanyService companyService = null;
@@ -27,6 +27,7 @@ public class CompanyController
 	}
 
 	// http://localhost:8080/api/companies
+	@CrossOrigin(origins = {"http://localhost:5173"}, allowCredentials = "true")
 	@GetMapping(version = "1.0")
 	public ResponseEntity<List<CompanyDto>> getAllCompanies()
 	{

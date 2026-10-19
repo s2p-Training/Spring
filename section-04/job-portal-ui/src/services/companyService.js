@@ -58,7 +58,7 @@ const transformJob = (job) => {
  */
 export const fetchCompanies = async () => {
   try {
-    const response = await httpClient.get(API_ENDPOINTS.COMPANIES);
+    const response = await httpClient.get(API_ENDPOINTS.C9OMPANIES);
     const data = response.data;
 
     // Transform the backend data to match frontend structure
