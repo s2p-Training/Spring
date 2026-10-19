@@ -53,6 +53,8 @@ public class ContactController
 	public ResponseEntity<String> fetchContactInformationById(
 			@PathVariable("contact_id")
 			@Validated
+			@Min(0)
+			@Max(1200000L)
 			@Positive(message = "Contact ID Should Be Positive") Long contactId
 	)
 	{
