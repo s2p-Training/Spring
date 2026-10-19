@@ -148,3 +148,57 @@ public class ContactServiceImpl implements IContactService
 }
 
 ```
+
+6. Creating Contacts API.
+   1. Create The New File Inside Controller Package, With Name ContactController.
+   2. Annotate The Class With @RestController And RequestMapping Annotation With Proper API Path.
+   3. Perform **Constructor Based Dependency Injection** Of ContactController With IContactService Bean, IContactService Reference Will Hold The Instance Of ContactServiceImpl Class.
+   4. Write The Post API Method, Using @PostMapping Annotation
+```java
+package com.s2p.controller;
+
+import com.s2p.dto.ContactRequestDto;
+import com.s2p.service.interfaces.IContactService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/contacts")
+public class ContactController
+{
+	private final IContactService contactService;
+
+	@Autowired
+	public ContactController(IContactService contactService) {
+		this.contactService = contactService;
+	}
+
+	@PostMapping(version = "1.0")
+	public ResponseEntity<String> saveContactMsg(@RequestBody ContactRequestDto contactRequestDto)
+	{
+		String message = null;
+		HttpStatus statusCode = null;
+
+		boolean isSaved =  contactService.saveContact(contactRequestDto);
+
+		if (isSaved) {
+			message = "Request processed successfully";
+			statusCode = HttpStatus.CREATED;
+		}
+		else
+		{
+			message = "Request processing failed";
+			statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+
+		ResponseEntity<String> response = new ResponseEntity<>(message,statusCode);
+		return response;
+	}
+}
+
+```
