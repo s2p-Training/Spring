@@ -33,4 +33,54 @@ spring.security.user.roles=USER,ADMIN
     }
 ```
 
-4. 
+4. Define The SpringSecurityFilterChain Bean With Custom Configuration
+```java
+
+@Configuration
+@EnableWebSecurity
+public class JobPortalSecurityConfig
+{
+    @Bean
+    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) {
+        http.authorizeHttpRequests(
+                (requests)->{
+//                    requests.anyRequest().authenticated(); // Going to authenticate every request
+//                    requests.anyRequest().permitAll(); // Going to allow every request without any credentials
+//                    requests.anyRequest().denyAll(); // Going to deny every request with / without credentials
+                    
+                    requests.anyRequest().permitAll(); // Going to allow every request without any credentials
+                }
+        );
+
+        http.formLogin(flc->flc.disable());
+        http.httpBasic(withDefaults());
+        return http.build();
+    }
+
+}
+```
+
+5. For Invoking The POST APIs, Disable The CSRF Protection, Using SpringSecurity's SecurityFilterChain Bean Configuration
+```java
+    @Bean
+SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) {
+    
+    // Other Spring Security Instructions
+
+    
+    // [Changes] Disable The CSRF Protection
+    http.csrf(csrfConfig->csrfConfig.disable());
+    
+    
+    // Other Spring Security Instructions
+    // Disbaling The Form Based Authentication Method
+    http.formLogin(flc->flc.disable());
+    
+    http.httpBasic(withDefaults());
+    
+    // Returning The Instance Of SecurityFilterChain Class
+    return http.build();
+}
+```
+
+6. 
