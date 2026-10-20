@@ -30,6 +30,6 @@ public class ContactRequestDto
 	private String subject;
 
 	@NotBlank(message = "UserType can not be empty")
-	@Pattern(regexp = "Job Seeker|Employer|Other", message = "UserType must be one of: Job Seeker, Employer, Other")
+	@Pattern(regexp = "jobseeker|employer|other", message = "UserType must be one of: Job Seeker, Employer, Other")
 	private String userType;
 }
