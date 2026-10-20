@@ -214,3 +214,75 @@ public class JobPortalApplication
 
 }
 ```
+
+### 5. Create The Database Table Contacts, So That Entity Class Will Be Mapped With Database Table
+```sql
+CREATE TABLE IF NOT EXISTS contacts (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'NEW',
+    subject VARCHAR(255) NOT NULL,
+    user_type VARCHAR(50) NOT NULL,
+
+    created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    created_by VARCHAR(255) NOT NULL,
+
+    updated_at TIMESTAMP(6) NULL DEFAULT NULL
+    ON UPDATE CURRENT_TIMESTAMP(6),
+    updated_by VARCHAR(20) DEFAULT NULL,
+    PRIMARY KEY (id)
+    );
+```
+
+### 6. Test The Contacts APIs
+# Create Contact
+
+Creates a new contact submission.
+
+## Endpoint
+
+`POST /api/contacts`
+
+## Request Headers
+
+| Header | Value |
+|---|---|
+| `Content-Type` | `application/json` |
+| `Accept` | `application/vnd.s2p+json;v=1.0` |
+
+## Request Body
+
+```json
+{
+  "email": "pranayramteke613@gmail.com",
+  "message": "This is some useless message for testing the API",
+  "name": "Pranay Ramteke",
+  "subject": "System Issue At Backend Server",
+  "userType": "Job Seeker"
+}
+```
+
+## Example Request
+
+```bash
+curl --location 'http://localhost:8080/api/contacts' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/vnd.s2p+json;v=1.0' \
+  --data '{
+    "email": "pranayramteke613@gmail.com",
+    "message": "This is some useless message for testing the API",
+    "name": "Pranay Ramteke",
+    "subject": "System Issue At Backend Server",
+    "userType": "Job Seeker"
+  }'
+```
+
+## Responses
+
+Document the actual HTTP status codes and response bodies returned by your implementation.
+
+- Success: contact created.
+- Validation failure: request contains invalid or missing fields.
+- Server error: unexpected failure while processing the request.
