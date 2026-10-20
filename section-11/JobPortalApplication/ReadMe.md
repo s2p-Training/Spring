@@ -321,8 +321,8 @@ public class CompanyDto
     String companyName = job.getCompany().getName();
     dto.setCompanyName(companyName);
 
-    String companyLocation = job.getCompany().getLogo();
-    dto.setLocation(companyLocation);
+    String companyLogo = job.getCompany().getLogo();
+    dto.setCompanyLogo(companyLogo);
 
     // } End Of Company Related Fields
 
