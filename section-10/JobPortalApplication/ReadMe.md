@@ -1,3 +1,14 @@
+# Swagger Documentation: Modern Way Of Documenting Your APIs
+
+1. Add The Dependency For API Documentation:
+```java
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.8.14</version>
+		</dependency>
+```
+
 # Introduction To Bean Scopes
 
 1. Create The Application Scoped Bean Inside scope package
