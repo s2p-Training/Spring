@@ -65,22 +65,9 @@ public class JobPortalSecurityConfig
     @Bean
 SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) {
     
-    // Other Spring Security Instructions
-
     
-    // [Changes] Disable The CSRF Protection
+    // Before Returning The Instance Of SecurityFilterChain.
     http.csrf(csrfConfig->csrfConfig.disable());
     
-    
-    // Other Spring Security Instructions
-    // Disbaling The Form Based Authentication Method
-    http.formLogin(flc->flc.disable());
-    
-    http.httpBasic(withDefaults());
-    
-    // Returning The Instance Of SecurityFilterChain Class
-    return http.build();
 }
 ```
-
-6. 
