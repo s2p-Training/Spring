@@ -1,4 +1,9 @@
 package com.s2p.dto;
 
-public class LoginResponseDto {
+public record LoginResponseDto(
+        String message,
+        UserDto user,
+        String jwtToken)
+{
+
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="section15" />
+        <module name="section8" />
+        <module name="section14" />
+        <module name="section9" />
+        <module name="section1" />
+        <module name="section13" />
+        <module name="section12" />
+        <module name="section11" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="section1" options="-parameters" />
+      <module name="section11" options="-parameters" />
+      <module name="section12" options="-parameters" />
+      <module name="section13" options="-parameters" />
+      <module name="section14" options="-parameters" />
+      <module name="section15" options="-parameters" />
+      <module name="section8" options="-parameters" />
+      <module name="section9" options="-parameters" />
+    </option>
+  </component>
+</project>

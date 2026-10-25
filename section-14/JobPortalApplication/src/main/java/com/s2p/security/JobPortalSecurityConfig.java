@@ -111,7 +111,7 @@ public class JobPortalSecurityConfig
         // Creating Two Dummy Users
         UserDetails u1 = User.builder().username(username1).authorities("ROLE_ADMIN").password(hashedPassword1).build();
         UserDetails u2 = User.builder().username(username2).authorities("ROLE_HR").password(hashedPassword2).build();
-        UserDetails u3 = User.builder().username(username2).authorities("ROLE_JOB_SEEKER").password(hashedPassword2).build();
+        UserDetails u3 = User.builder().username(username3).authorities("ROLE_JOB_SEEKER").password(hashedPassword3).build();
 
         UserDetailsService service = new InMemoryUserDetailsManager(u1,u2,u3);
         return service;
