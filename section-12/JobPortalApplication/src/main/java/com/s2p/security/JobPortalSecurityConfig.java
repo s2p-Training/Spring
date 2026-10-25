@@ -26,7 +26,7 @@ public class JobPortalSecurityConfig
         );
 
         // Disable The CSRF Protection
-        http.csrf(csrfConfig->csrfConfig.disable());
+//        http.csrf(csrfConfig->csrfConfig.disable());
         http.formLogin(flc->flc.disable());
         http.httpBasic(withDefaults());
         return http.build();
