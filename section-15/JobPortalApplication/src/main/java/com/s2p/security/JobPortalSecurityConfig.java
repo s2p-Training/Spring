@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -106,9 +109,10 @@ public class JobPortalSecurityConfig
         String hashedPassword3 = encoder.encode(password2);
 
         // Creating Two Dummy Users
+        // Creating Two Dummy Users
         UserDetails u1 = User.builder().username(username1).authorities("ROLE_ADMIN").password(hashedPassword1).build();
         UserDetails u2 = User.builder().username(username2).authorities("ROLE_HR").password(hashedPassword2).build();
-        UserDetails u3 = User.builder().username(username2).authorities("ROLE_JOB_SEEKER").password(hashedPassword2).build();
+        UserDetails u3 = User.builder().username(username3).authorities("ROLE_JOB_SEEKER").password(hashedPassword3).build();
 
         UserDetailsService service = new InMemoryUserDetailsManager(u1,u2,u3);
         return service;
@@ -117,9 +121,11 @@ public class JobPortalSecurityConfig
 
 
     @Bean
-    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService)
+    public AuthenticationManager authenticationManager()
     {
-
+        AuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService());
+        ProviderManager providerManager = new ProviderManager(provider);
+        return providerManager;
     }
 
 }
