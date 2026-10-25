@@ -120,12 +120,4 @@ public class JobPortalSecurityConfig
     }
 
 
-    @Bean
-    public AuthenticationManager authenticationManager()
-    {
-        AuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService());
-        ProviderManager providerManager = new ProviderManager(provider);
-        return providerManager;
-    }
-
 }
