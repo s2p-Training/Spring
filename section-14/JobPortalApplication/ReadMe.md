@@ -44,14 +44,3 @@
 
     }
 ```
-
-3. Provide AuthenticationManager Bean Which Will Use The Custom UserDetailsService Bean Provided By The Programmer.
-```java
-   @Bean
-    public AuthenticationManager authenticationManager()
-    {
-        AuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService());
-        ProviderManager providerManager = new ProviderManager(provider);
-        return providerManager;
-    }
-```
