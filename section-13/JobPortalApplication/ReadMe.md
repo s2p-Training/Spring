@@ -1,5 +1,25 @@
 # Spring Security Configuration: API Paths & CORS Configuration
 
+### 0. Making Companies And Contacts API As Public
+
+- Add public suffix to GET API of companies inside CompanyController.java
+```java
+@GetMapping(path = "/public", version = "1.0")
+	public ResponseEntity<List<CompanyDto>> getAllCompanies() {
+        // Previously Written Code
+    }
+```
+-- Add public suffix to POST API of contacts inside ContactController.java
+```java
+
+	/// Applying Validation Logic Using @Valid Annotation
+	@PostMapping(path = "/public",version = "1.0")
+	public ResponseEntity<String> saveContactMsg(@Valid @RequestBody ContactRequestDto contactRequestDto) {
+        //  Previously Written Code
+    }
+```
+
+
 ### 1. Separating The Public APIs & Secured APIs
 
 - Create the file with name PathConfig.java, which will have all the API URI of public paths & private paths. 

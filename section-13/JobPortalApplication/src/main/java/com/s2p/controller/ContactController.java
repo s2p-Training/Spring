@@ -25,7 +25,7 @@ public class ContactController
 	}
 
 	/// Applying Validation Logic Using @Valid Annotation
-	@PostMapping(version = "1.0")
+	@PostMapping(path = "/public",version = "1.0")
 	public ResponseEntity<String> saveContactMsg(@Valid @RequestBody ContactRequestDto contactRequestDto)
 	{
 		String message = null;
