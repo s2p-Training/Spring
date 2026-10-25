@@ -1,0 +1,14 @@
+{
+  "message": "Login Successful",
+  "user": {
+    "companyId": 2,
+    "companyName": "Microsoft Corporation",
+    "createdAt": "2026-10-25T10:12:05.206825Z",
+    "email": "john@gmail.com",
+    "mobileNumber": "+1 4155550143",
+    "name": "John Doe",
+    "role": "ROLE_JOBSEEKER",
+    "userId": 104
+  },
+  "jwtToken": "TestToken@aexdsyr@34fsd500"
+}
